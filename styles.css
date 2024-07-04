@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body {
+  background: #023f97;
+  text-align: center;
+  padding: 60px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.button {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: #023f97;
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.glow-button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(2, 63, 151, .4);
+}
+
+.initial-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #023f97;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  max-width: 25%;
+  cursor: pointer;
+}
+
+.tagline {
+  margin-top: 5px;
+  font-size: 1.5vw;
+  color: #fff;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  background-color: #023f97;
+  margin: 50px auto; /* 화면 중앙에 위치 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background-color: #023f97; /* 동영상 배경 색상 */
+}
+
+.video::-webkit-media-controls {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.skip-button {
+  position: absolute;
+  top: 85%; /* 아래로 이동 */
+  right: 5%; /* 우측 하단에 위치 */
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 간격 조정 */
+  margin-top: 20px; /* 동영상 밑에 위치 */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+}
+
+/* 팝업 버튼 스타일 */
+.popup-button, .login-button {
+  background-color: #023f97;
+  color: #fff;
+  border: none;
+  padding: 20px 90px; /* 버튼 바 더 길게 조정 */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em; /* 글자 크기 조정 */
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.popup-button.full-width {
+  width: calc(100% - 120px); /* 버튼 가로 길이 통일 */
+}
+
+.popup-button:hover, .login-button:hover:not(:disabled) {
+  background-color: #021c49; /* hover 시 색상 변경 */
+}
+
+.popup-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 40px; /* 전체 팝업 크기 키움 */
+  border-radius: 10px;
+  text-align: center;
+  max-width: 800px; /* 최대 너비 조정 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 중앙 정렬 */
+}
+
+.popup-image {
+  width: 80%; /* 팝업 크기에 맞게 조정 */
+  max-width: 200px; /* 최대 너비 설정 */
+  height: auto;
+  margin-bottom: 10px; /* 이미지 하단 여백 설정 */
+}
+
+.centered-element {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tagline-popup {
+  font-size: 1.5em;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 3px; /* 줄 간격 3px로 설정 */
+}
+
+.sub-tagline-popup.centered {
+  font-size: 2em; /* 글자 크기 키움 */
+  color: #555; /* 진한 그레이스케일 글자 색상 */
+  font-weight: bold; /* 볼드체 */
+  margin-bottom: 3px; /* 간격 최대한 줄임 */
+  text-align: center; /* 중앙 정렬 */
+  visibility: visible; /* 텍스트 보이도록 설정 */
+}
+
+.popup-logo {
+  width: auto;
+  height: 6em; /* '페이백의 모든 것' 텍스트 크기에 맞춤 (5배로 키움) */
+  margin-bottom: 5px; /* 간격 최대한 줄임 */
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0; /* 상하 간격 10px로 설정 */
+  width: 100%; /* 버튼 컨테이너 너비 설정 */
+}
+
+.button-icon {
+  margin-right: 20px; /* 아이콘과 텍스트 간격 */
+  width: 80px; /* 아이콘 크기 조정 */
+  height: 80px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* 백비트 이용이 처음이신가요? 버튼과 같은 너비로 설정 */
+  margin: 10px auto; /* 상하 간격 10px로 설정 */
+}
+
+.input-label {
+  position: absolute;
+  top: 13px; /* 상단에 위치 */
+  left: 12px; /* 오른쪽으로 2px 이동 */
+  font-size: 10px;
+  color: #aaa; /* 그레이스케일 텍스트 */
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+.popup-input {
+  width: calc(100% - 50px); /* Clear 버튼과 같은 줄에 위치하도록 조정 */
+  padding: 14px 10px 0 10px; /* 상단 패딩 5px 위로 이동 */
+  font-size: 16px; /* 텍스트 크기 16px로 설정 */
+  color: #aaa; /* 텍스트 색상 변경 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 54px; /* 높이 조정 */
+  margin-top: 1px; /* 휴대폰 번호 버튼과 비밀번호 버튼 간의 줄 간격을 1px로 설정 */
+}
+
+.popup-input:focus {
+  color: #023f97; /* 입력 중 텍스트 색상 변경 */
+  font-weight: bold; /* 입력 중 폰트 볼드체 */
+  border-color: #023f97; /* 버튼 외곽 라인 색상 변경 */
+  box-shadow: 0 0 5px #023f97; /* 외곽 라인을 굵게 표시 */
+}
+
+.popup-input:focus::placeholder {
+  color: transparent; /* 입력 중 플레이스홀더 투명화 */
+}
+
+.popup-input:focus,
+.popup-input:valid {
+  color: #000; /* 입력 후 텍스트 색상 변경 */
+}
+
+.clear-button {
+  position: absolute;
+  top: 50%; /* Clear 버튼이 텍스트 입력과 같은 줄에 위치하도록 조정 */
+  transform: translateY(-50%);
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.login-button {
+  width: 100%;
+  max-width: 400px;
+  background-color: #023f97;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px; /* 간격 10px로 설정 */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 48px;
+  transition: background-color 0.3s;
+}
+
+.login-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #021c49; /* hover 시 색상 변경 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: auto;
+  }
+
+  .video {
+    width: 100%;
+    height: auto;
+  }
+
+  .skip-button {
+    top: 80%;
+    right: 10%;
+  }
+
+  .choices {
+    margin-top: 10px;
+    gap: 5px;
+  }
+
+  .popup-content {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-icon {
+    margin: 0 0 10px 0;
+    width: 60px;
+    height: 60px;
+  }
+
+  .popup-button,
+  .login-button {
+    padding: 15px 30px;
+    font-size: 0.9em;
+  }
+
+  .input-container {
+    margin: 5px auto;
+  }
+
+  .popup-input {
+    padding: 10px;
+    height: 40px;
+  }
+}
