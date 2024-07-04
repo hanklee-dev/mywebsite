@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>출금하기</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="result-section">
+    <h2 id="current-date"></h2>
+    <p id="usdt-amount">0.00 USDT</p>
+    <p>업데이트 기준은 각 거래소마다 상이합니다.</p>
+    <p>레퍼럴 코드: <span id="referral-code"></span></p>
+    <p>연동 정보: Bybit, DeepCoin, Bitget, OKX, BingX, Bitmart, CoinCatch, Bitmex, Bitvenus, HTX</p>
+    <p>출금 내역: <span id="withdrawal-amount">0.00 USDT</span></p>
+    <input type="number" id="withdraw-input" placeholder="출금할 금액을 입력하세요">
+    <button id="final-withdraw-button">출금하기</button>
+    <p id="withdrawal-warning" class="hidden">출금할 수 있는 금액을 초과했습니다.</p>
+  </div>
+  <script src="result.js"></script>
+</body>
+</html>
