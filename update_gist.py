@@ -1,4 +1,32 @@
+import requests
 
+# GitHub API URL 및 인증 정보 설정
+GIST_ID = '10ef136b2f3ddfaf0221f57b0425fe17'  # 여기에 너의 Gist ID를 입력해
+GITHUB_TOKEN = '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'  # 여기에 너의 GitHub Personal Access Token을 입력해
+
+# Gist 업데이트 함수
+def update_gist(file_name, content):
+    url = f'https://api.github.com/gists/{GIST_ID}'
+    headers = {
+        'Authorization': f'token {GITHUB_TOKEN}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+    payload = {
+        'files': {
+            file_name: {
+                'content': content
+            }
+        }
+    }
+    response = requests.patch(url, headers=headers, json=payload)
+    if response.status_code == 200:
+        print(f'{file_name}이(가) 성공적으로 업데이트되었습니다.')
+    else:
+        print(f'업데이트 실패: {response.status_code}')
+        print(response.json())
+
+# index.html 파일 내용 업데이트
+new_content = """
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,3 +91,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+"""
+
+update_gist('index.html', new_content)
